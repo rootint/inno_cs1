@@ -1,26 +1,22 @@
 #include <iostream>
-#include <cmath>
+#include <vector>
 
-bool is_prime(int n) {
-    if (n < 2) {
-        return false;
+float avg(std::vector<int> array) {
+    int n = array.size();
+    int sum = 0;
+    for (int element : array) {
+        sum += element;
     }
-    for (int i = 2; i <= sqrt(n); i++) {
-        if (n % i == 0) {
-            return false;
-        }
-    }
-    return true;
+    return (float) sum / n;
 }
 
-int main() {
+int main(void) {
     int n;
-    std::string f = "wtf";
-    std::cout << f << std::endl;
-    do {
-        std::cout << "Enter the number: ";
-        std::cin >> n;  
-    } while (n < 0);
-    std::cout << ((is_prime(n)) ? "Prime" : "Not Prime") << std::endl;
+    std::cin >> n;
+    std::vector<int> array(n); //pre-allocating memory makes things faster
+    for (int i = 0; i < n; i++) {
+        std::cin >> array[i];
+    }
+
     return 0;
 }
