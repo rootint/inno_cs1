@@ -17,8 +17,6 @@ int main() {
     int n;
     std::string f = "wtf";
     std::cout << f << std::endl;
-    std::cout << "Enter the number: ";
-    std::cin >> n;
     do {
         std::cout << "Enter the number: ";
         std::cin >> n;  
