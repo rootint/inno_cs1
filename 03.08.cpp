@@ -6,15 +6,19 @@
 // std::vector<int> new_vec(vec.begin(), vec.begin() + n_elements);
 // std::sort(array.begin(), array.end());
 
-std::vector<int> bubble_sort(std::vector<int>& array) { // & saves time as it uses the same array
-    int n = array.size();
-    for (int i = 0; i < n; i++) {
-        for (int j = i + 1; j < n; j++) {
-            if (array[i] > array[j])
-                std::swap(array[i], array[j]);
+std::vector<int> merge(std::vector<int> left, std::vector<int> right) {
+    std::vector<int> merged;
+    int idxl, idxr;
+    idxl = idxr = 0;
+    while (idxl < left.size() && idxr < right.size()) {
+        if (left[idxl] < right[idxr]) {
+            merged.push_back(left[idxl]);
+            idxl++;
+        } else {
+            merged.push_back(right[idxr]);
+            idxr++;
         }
     }
-    return array;
 }
 
 int main() {
@@ -30,7 +34,8 @@ int main() {
         std::cin >> array[i];
     }
 
-    array = bubble_sort(array);
+    // ?
+    merge_sort(array, 0, array.size() - 1);
 
     for (int i : array) {
         std::cout << i << " ";
